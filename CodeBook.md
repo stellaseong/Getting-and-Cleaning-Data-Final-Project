@@ -35,26 +35,26 @@ This file describes the variables, the data, and any transformation done to clea
  - act_labels: 6 class labels with their activity name.
 
 * Transformed data as part of the project component.
- - Merge training and test sets to create one data set.
-  1. Xtotal: from rbind(Xtrain, Xtest)
-  2. ytotal: from rbind(ytrain, ytest)
+ 1. Merge training and test sets to create one data set.
+  - Xtotal: from rbind(Xtrain, Xtest)
+  - ytotal: from rbind(ytrain, ytest)
 
- - Extracts only the measurements on the mean and standard deviation for each measurement.
-  1. colnames(features): give column names to features, c("v1","v2")
-  2. meanloc: index for mean, grep("mean",features$v2)
-  3. Xmean: data frame of mean measurement(10299x49), Xtotal[,meanloc]
-  4. stdloc: index for stdev, grep("std",features$v2)
-  5. Xstd: data frame of stdev measurement(10299x33), Xtotal[,stdloc]
+ 2. Extracts only the measurements on the mean and standard deviation for each measurement.
+  - colnames(features): give column names to features, c("v1","v2")
+  - meanloc: index for mean, grep("mean",features$v2)
+  - Xmean: data frame of mean measurement(10299x49), Xtotal[,meanloc]
+  - stdloc: index for stdev, grep("std",features$v2)
+  - Xstd: data frame of stdev measurement(10299x33), Xtotal[,stdloc]
   
- - Uses descriptive activity names to name the activities in the data set.
-  1. ytotal: created a second column with descriptive activity names that correspond to each number.
+ 3. Uses descriptive activity names to name the activities in the data set.
+  - ytotal: created a second column with descriptive activity names that correspond to each number.
 
- - Appropriately labels the data set with variable names.
-  1. Set table headers using features.
-  2. Set column names by cbinding (subject and activity)
+ 4. Appropriately labels the data set with variable names.
+  - Set table headers using features.
+  - Set column names by cbinding (subject and activity)
 
- - From the data set in step 4, creates a second, independent tidy data set with the average of each activity and each subject.
-  1. mean_subj_act: cbind Subject column, Activity column with Xmean data frame
-  2. x: entire X data frame with Subject column and Activity column
-  3. tidydata.txt: output text file of the mean_subj_act table
+ 5. From the data set in step 4, creates a second, independent tidy data set with the average of each activity and each subject.
+  - mean_subj_act: cbind Subject column, Activity column with Xmean data frame
+  - x: entire X data frame with Subject column and Activity column
+  - tidydata.txt: output text file of the mean_subj_act table
 
